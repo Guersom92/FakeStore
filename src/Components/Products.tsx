@@ -1,4 +1,3 @@
-import React from "react";
 import { useProducts } from "../hooks/UseProducts";
 import "./Products.scss";
 import type { ProductoType } from "../types";
