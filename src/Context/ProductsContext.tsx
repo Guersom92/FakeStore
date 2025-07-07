@@ -26,11 +26,11 @@ export const ProductsProvider = ({
   const [products, setProducts] = useState<ProductoType[] | []>([]);
   const [loading, setLoading] = useState(true);
   const [paginaActual, setPaginaActual] = useState(1);
-  const [productosPorPagina, serProductosPorPagina] = useState(8);
   const [filter, setFilter] = useState<FilterType>({
     maxPrice: 700,
     category: "all",
   });
+  const productosPorPagina = 8;
 
   useEffect(() => {
     getAll().then((response) => {
