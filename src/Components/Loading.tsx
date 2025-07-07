@@ -1,9 +1,10 @@
+import { StoreIcon } from "./Icons";
 import "./Loading.scss";
 
 function Loading() {
   return (
     <div className="loading-overlay">
-      <img src="/store.svg" alt="Store" />
+      <StoreIcon />
     </div>
   );
 }

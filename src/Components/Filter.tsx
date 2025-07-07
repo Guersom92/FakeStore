@@ -1,13 +1,13 @@
 import "./Filter.scss";
-import { UseFilter } from "../hooks/UseFilter";
+import { useProducts } from "../hooks/UseProducts";
 import type { Categories } from "../types";
 
 function Filter() {
-  const { filter, changeMaxPrice, changeCategory } = UseFilter();
+  const { filter, changeMaxPrice, changeCategory } = useProducts();
   return (
     <section className="filtros">
       <div>
-        <label htmlFor="precioMax">Precio Máximo: </label>
+        <label htmlFor="precioMax">Precio Máximo:</label>
         <input
           value={filter.maxPrice}
           id="precioMax"
