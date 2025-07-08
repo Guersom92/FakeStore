@@ -3,13 +3,13 @@ svg{
     cursor: pointer;
     position: absolute;
     padding: 0.4rem;
-    color: #ffbc70;
+    color: var(--bg-secondary);
     right: 8px;
     z-index:100;
     transition: all 0.3s ease;
     top: 8px;
     border-radius: 50px;
-    background-color: #451405;
+    background-color: var(--accent-primary);
     
 }
 svg:hover{
@@ -17,20 +17,73 @@ svg:hover{
     }}
 
 input:checked ~ .carrito {
-  display:block;
+  display:flex;
 }
 
 .carrito{
+overflow: scroll;
+align-items: center;
+flex-direction: column;
+    height: 100%;
     position: fixed;
+    animation: FadeIn 0.3s ease-in-out;
     top: 0px;
+    z-index: 10;
     right: 0px;
     width: 200px;
-    background-color: #ffbc70;
+    background-color: var(--bg-tertiary);
     display: none;
+    padding: 1rem ;
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+    li{
+        border-bottom: 1px solid var(--accent-primary);
+        padding-bottom: 1rem;
+    }
     
     img{
         
         width: 100%;
         aspect-ratio: 1/1;
     }
+    footer{
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    button{
+        color: var(--accent-primary);
+        background-color: var(--bg-secondary);
+        padding: 0.5rem;
+        border: none;
+        border-radius:200px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+          }
+    .clearButton{
+        color: var(--accent-primary);
+        background-color: var(--bg-secondary);
+        margin: 0.5rem;
+        border-radius:200px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    button:hover{
+        background-color: var(--accent-primary);
+        color: var(--bg-secondary);
+    }
+}
+
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

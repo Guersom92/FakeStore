@@ -1,4 +1,4 @@
-export type ProductoType= {
+export interface ProductoType {
     id:                   number;
     title:                string;
     description:          string;
@@ -20,6 +20,9 @@ export type ProductoType= {
     meta:                 Meta;
     images:               {}[];
     thumbnail:            string;
+}
+export interface CartType extends ProductoType {
+  cantidad: number;
 }
 
 export type FilterType={

@@ -1,7 +1,10 @@
-import { CartIcon } from "./Icons";
+import { CartIcon, ClearCartIcon } from "./Icons";
 import "./Carrito.scss";
+import { useCarrito } from "../hooks/UseCarrito";
 
 function Carrrito() {
+  const { cart, clearCart, addToCart } = useCarrito();
+
   return (
     <>
       <label className="boton-carrito" htmlFor="carro">
@@ -10,20 +13,24 @@ function Carrrito() {
       <input hidden type="checkbox" id="carro" />
       <aside className="carrito">
         <ul>
-          <li>
-            <img
-              src="https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp"
-              alt=""
-            />
-            <div>
-              <strong>perfume</strong> S/ 5454
-            </div>
-            <footer>
-              <small>qt1: 1</small>
-              <button>+</button>
-            </footer>
-          </li>
+          {cart.map((product) => {
+            return (
+              <li key={product.id}>
+                <img src={product.thumbnail} alt="" />
+                <div>
+                  <strong>{product.title}</strong> S/ {product.price}
+                </div>
+                <footer>
+                  <small>ctd: {product.cantidad}</small>
+                  <button onClick={() => addToCart(product)}>+</button>
+                </footer>
+              </li>
+            );
+          })}
         </ul>
+        <button className="clearButton" onClick={clearCart}>
+          <ClearCartIcon />
+        </button>
       </aside>
     </>
   );
