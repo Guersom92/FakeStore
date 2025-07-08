@@ -41,9 +41,12 @@ export const ProductsProvider = ({
 
   const changeCategory = (category: Categories) => {
     setFilter({ ...filter, category });
+    setPaginaActual(1);
   };
   const changeMaxPrice = (maxPrice: number) => {
     setFilter({ ...filter, maxPrice });
+    setPaginaActual(1);
+
   };
 
   const filteredProducts = products.filter(
